@@ -9,6 +9,7 @@ let cnv;
 
 function preload() {
   myFont = loadFont("Inconsolata-VariableFont_wdth,wght.ttf");
+  nanumDahengFont = loadFont("NanumDaheng.ttf");
 }
 
 function setup() {
@@ -35,17 +36,14 @@ function draw() {
       introTextbox("네? 저요?",false);
       break;
     case 4:
-      //언제쯤 시험 접수 성공
       backgroundDisplay();
       introTextbox("How do I get to Seoul National University?", true);
       break;
     case 5:
-      //언제쯤 시험 접수 성공
       backgroundDisplay();
       introTextbox("어... 음... 죄송합니다!! (후다닥)", false);
       break;
     case 6:
-      //언제쯤 시험 접수 성공
       backgroundDisplay();
       introTextbox(
         "하... 이 나이가 되서 영어 한마디를 못하다니... \n나도 영어 공부좀 해야겠어", false
@@ -64,7 +62,7 @@ function draw() {
       questionDisplay();
       break;
     case 10:
-      //시험 신청 성공!
+      //성공
       
   background(255, 179, 193);
       textAlign(CENTER, CENTER);
@@ -81,7 +79,7 @@ function draw() {
       redlineStart = 0;
       break;
     case 11:
-      //체크리스트 3번 지워지기
+      //체크리스트 1번 지워지기
       checklistDisplay();
       break;
 
@@ -238,6 +236,7 @@ function checklistDisplay() {
   textSize(50);
   noStroke();
   fill(102, 51, 0);
+  textFont(nanumDahengFont);
   text("체크리스트", width / 2, 50);
 
   textAlign(LEFT, CENTER);
@@ -246,15 +245,14 @@ function checklistDisplay() {
   text("1.영어공부하기", 30, 150);
   text("2.봉사활동", 30, 200);
   text("3.한국사시험 신청", 30, 250);
+  textFont('Noto Sans KR');
 
   strokeWeight(5);
   stroke(255, 0, 0, 200);
-  //line(20, 150, 210, 150);
-  //line(20, 200, 170, 200);
 
   strokeWeight(5);
   stroke(255, 0, 0, 200);
-  line(20, 150, 20 + redlineStart, 150);
+  line(20, 155, 20 + redlineStart, 155);
 
   if (frameCount % 5 == 0) {
     if (redlineStart <= 230) {
@@ -294,11 +292,9 @@ function checklistDisplay() {
     strokeWeight(1);
     stroke(30, 150);
     rectMode(CENTER);
-    //rect(width / 2, height - 10, 100, 15);
     textSize(20);
     textStyle(NORMAL);
     fill(30, 150);
-    //text("Menu에서 비밀번호를 입력할 수 있습니다.", width / 2, height - 30);
     rectMode(CORNER);
   }
 }
